@@ -20,6 +20,7 @@ class HttpManager {
 
   Future<dynamic> put(url) async {
     final headers = await _getHeaders();
+<<<<<<< HEAD
     final response =
         await http.Client().put(AppConfig.API_URL + url, headers: headers);
     final parsed = jsonDecode(response.body);
@@ -27,12 +28,21 @@ class HttpManager {
 
     if (!success) {
       throw Exception('Error en registro');
+=======
+    final response = await http.Client().put(AppConfig.API_URL + url, headers: headers);
+    final parsed = jsonDecode(response.body);
+    final success = parsed['success'];
+
+    if(!success){
+      throw Exception('Error al crear');
+>>>>>>> b49ad72a33c1b53835a105fe509bafc9feefc3a2
     }
     return parsed;
   }
 
   Future<dynamic> post(url, data) async {
     final headers = await _getHeaders();
+<<<<<<< HEAD
     final response = await http.Client().post(
       AppConfig.API_URL + url,
       headers: headers,
@@ -45,6 +55,22 @@ class HttpManager {
     if (!success) throw Exception(resp['message']);
     return resp;
   }
+=======
+    final response = await http.Client().post(AppConfig.API_URL + url,
+      body: jsonEncode(data), headers: headers
+    );
+    final parsed = jsonDecode(response.body);
+    final success = parsed['success'];
+
+    if (!success) {
+      throw Exception(parsed['message']);
+    }
+    return parsed;
+  }
+
+  //TODO: Form validate
+
+>>>>>>> b49ad72a33c1b53835a105fe509bafc9feefc3a2
 
   _getHeaders() async {
     final token = await TokenManager.getInstance().getToken();
