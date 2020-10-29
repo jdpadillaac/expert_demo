@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 final lightTHeme = ThemeData(
   inputDecorationTheme: InputDecorationTheme(
+    hintStyle: TextStyle(
+      color: Colors.grey,
+      fontSize: 13,
+    ),
     border: _border,
     enabledBorder: _border,
     focusedBorder: _border,
