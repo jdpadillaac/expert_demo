@@ -20,6 +20,7 @@ class AuthProvider {
       final String token = responseData['token'];
 
       final user = UserModel.fromJson(responseData['data']);
+      print('-');
       if (user.role == 'U') {
         await TokenManager.getInstance().setToken(token);
         final session = await SessionManager.getIntance();
