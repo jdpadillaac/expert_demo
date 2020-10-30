@@ -22,7 +22,7 @@ class LoginStudent extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 100),
+              SizedBox(height: 50),
               Logo(),
               Formlogin(),
             ],
@@ -74,7 +74,8 @@ class _FormloginState extends State<Formlogin> {
           SizedBox(height: 30),
           _siginButtom(),
           SizedBox(height: 20),
-          _registerButton()
+          _registerButton(),
+          SizedBox(height: 40),
         ]),
       ),
     );

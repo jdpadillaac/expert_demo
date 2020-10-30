@@ -1,3 +1,5 @@
+import 'package:demo/managers/token_maganer.dart';
+import 'package:demo/pages/student/pages/login_student.dart';
 import 'package:flutter/material.dart';
 
 class HomeStudentPage extends StatelessWidget {
@@ -6,12 +8,15 @@ class HomeStudentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student expert'),
+        title: Text('Perfil estudiante'),
       ),
       body: Column(
         children: [
           RaisedButton(
-            onPressed: () {},
+            onPressed: () async {
+              await TokenManager.getInstance().cleanToken();
+              Navigator.pushReplacementNamed(context, LoginStudent.routeName);
+            },
             child: Text('Cerrar sesión'),
           ),
         ],

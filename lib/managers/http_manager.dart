@@ -40,6 +40,7 @@ class HttpManager {
     );
 
     final resp = jsonDecode(response.body);
+    print(resp);
 
     final success = resp['success'];
     if (!success) throw Exception(resp['message']);
